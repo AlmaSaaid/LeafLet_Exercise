@@ -1,0 +1,20 @@
+Map with LeafLet
+================
+
+`{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)`
+
+Introduction
+------------
+
+This is an R Markdown for creating a web page using R Markdown that features a map created with Leaflet.
+
+The Map
+-------
+
+The map I'm showing is a place where I was born, my hometown and the university I attended. The code is as given below:
+
+\`\`\`{r echo=FALSE} library(leaflet) library(maps) library(ggmap)
+
+my.bd.map &lt;- leaflet() %&gt;% addTiles('<http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D>', attribution = 'Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid,IGN, IGP, UPR-EGP, and the GIS User Community')
+
+my.bd.map %&gt;% setView(101.757051,2.961915, zoom = 13) %&gt;% addPopups(101.753714,2.960132, "Here's where I was born!") %&gt;% addPopups(101.781838,2.945495, "My home sweet home") %&gt;% addPopups(101.777423,2.929997, "My uni") %&gt;% addMarkers(101.753714,2.960132, "Here's where I was born!") %&gt;% addMarkers(101.781838,2.945495, "My home sweet home") %&gt;% addMarkers(101.777423,2.929997, "My uni") \`\`\`
